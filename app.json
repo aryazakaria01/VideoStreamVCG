@@ -1,7 +1,7 @@
 {
     "name": "VideoStreamVCG",
     "description": "Bot to stream video on telegram video chat, powered by pytgcalls and pyrogram",
-    "logo": "https://telegra.ph/file/103a5208bb1698a8b33de.png",
+    "logo": "https://telegra.ph/file/537d44ff49d11f6186863.jpg",
     "keywords": [
         "pytgcalls",
         "telegram bot",
