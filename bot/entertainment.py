@@ -68,7 +68,7 @@ async def lirik(_, message):
     rep = await message.reply_text("🔎 **Searching lyrics...**")
     try:
         if len(message.command) < 2:
-            await message.reply_text("**give a lyric name too !**")
+            await message.reply_text("**Give a lyric name too !**")
             return
         query = message.text.split(None, 1)[1]
         resp = requests.get(f"https://api-tede.herokuapp.com/api/lirik?l={query}").json()
