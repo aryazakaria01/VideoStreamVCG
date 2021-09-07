@@ -15,16 +15,16 @@ telegram bot project for streaming video on telegram video chat, powered by [tgc
 </p>
 
 ## 🛠 Commands:
-- /vstream (reply to video) - To start video streaming
-- /vstop - To stop video streaming
-- /song (song name) - To download song
-- /vsong (video name) - To download video
-- /lyric (query) - Lyric scrapper
-- /tts (reply to text) - Text to speech
-- /alive - Check the bot alive status
-- /ping - Check the bot ping status
-- /uptime - Check the bot uptime status
-- /sysinfo - Show the bot system information
+- `/vstream` (reply to video) - To start video streaming
+- `/vstop` - To stop video streaming
+- `/song` (song name) - To download song
+- `/vsong` (video name) - To download video
+- `/lyric` (query) - Lyric scrapper
+- `/tts` (reply to text) - Text to speech
+- `/alive` - Check the bot alive status
+- `/ping` - Check the bot ping status
+- `/uptime` - Check the bot uptime status
+- `/sysinfo` - Show the bot system information
 
 📝 Note: From now, /vstream & /vstop command can only be used by group admins.
 
