@@ -26,7 +26,7 @@ telegram bot project for streaming video on telegram video chat, powered by [tgc
 - `/uptime` - Check the bot uptime status
 - `/sysinfo` - Show the bot system information
 
-📝 Note: From now, /vstream & /vstop command can only be used by group admins.
+📝 Note: From now, `/vstream` & `/vstop` command can only be used by group admins.
 
 ## 🧪 Get STRING_SESSION from below:
 
