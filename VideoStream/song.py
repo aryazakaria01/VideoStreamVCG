@@ -267,7 +267,7 @@ async def vsong(_, message: Message):
         )
         print(str(e))
         return
-    await k.edit("📥 **downloading file...**")
+    await k.edit("📥 **Downloading file...**")
     try:
         with youtube_dl.YoutubeDL(ydl_ops) as ydl:
             info_dict = ydl.extract_info(link, download=False)
