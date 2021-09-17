@@ -4,11 +4,11 @@
 import requests
 from pyrogram import Client
 
-from config import BOT_USERNAME
+from config import Cyber
 from helpers.filters import command
 
 
-@Client.on_message(command(["asupan", f"asupan@{BOT_USERNAME}"]))
+@Client.on_message(command(["asupan", f"asupan@{Cyber.BOT_USERNAME}"]))
 async def asupan(client, message):
     try:
         resp = requests.get("https://api-tede.herokuapp.com/api/asupan/ptl").json()
@@ -19,7 +19,7 @@ async def asupan(client, message):
         print(ex)
 
 
-@Client.on_message(command(["wibu", f"wibu@{BOT_USERNAME}"]))
+@Client.on_message(command(["wibu", f"wibu@{Cyber.BOT_USERNAME}"]))
 async def wibu(client, message):
     try:
         resp = requests.get("https://api-tede.herokuapp.com/api/asupan/wibu").json()
@@ -30,7 +30,7 @@ async def wibu(client, message):
         await message.reply_text("Failed to get wibu from server...")
 
 
-@Client.on_message(command(["chika", f"chika@{BOT_USERNAME}"]))
+@Client.on_message(command(["chika", f"chika@{Cyber.BOT_USERNAME}"]))
 async def chika(client, message):
     try:
         resp = requests.get("https://api-tede.herokuapp.com/api/chika").json()
@@ -41,7 +41,7 @@ async def chika(client, message):
         await message.reply_text("Failed to get chika from server...")
 
 
-@Client.on_message(command(["truth", f"truth@{BOT_USERNAME}"]))
+@Client.on_message(command(["truth", f"truth@{Cyber.BOT_USERNAME}"]))
 async def truth(_, message):
     try:
         resp = requests.get("https://api-tede.herokuapp.com/api/truth-en").json()
@@ -49,10 +49,10 @@ async def truth(_, message):
         return await message.reply_text(results)
     except Exception as ex:
         print(ex)
-        await message.reply_text("Something went wrong...")
+        await message.reply_text("404 Not Found")
 
 
-@Client.on_message(command(["dare", f"dare@{BOT_USERNAME}"]))
+@Client.on_message(command(["dare", f"dare@{Cyber.BOT_USERNAME}"]))
 async def dare(_, message):
     try:
         resp = requests.get("https://api-tede.herokuapp.com/api/dare-en").json()
@@ -60,10 +60,10 @@ async def dare(_, message):
         return await message.reply_text(results)
     except Exception as ex:
         print(ex)
-        await message.reply_text("Something went wrong...")
+        await message.reply_text("404 Not Found")
 
 
-@Client.on_message(command(["lyric", f"lyric@{BOT_USERNAME}"]))
+@Client.on_message(command(["lyric", f"lyric@{Cyber.BOT_USERNAME}"]))
 async def lirik(_, message):
     rep = await message.reply_text("🔎 **Searching lyrics...**")
     try:
