@@ -1,3 +1,5 @@
+# Copyright (C) 2021 By VideoStreamVCG
+
 *.session
 *.session-journal
 .env
@@ -11,3 +13,4 @@ local.env
 *.jpg
 *png
 *.raw
+*.log
