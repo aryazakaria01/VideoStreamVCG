@@ -1,23 +1,64 @@
 # ===========
 # running bot
 # ===========
-
+import logging
+import time
+import sys
+import asyncio
+import glob
+import importlib
+from pathlib import Path
 from pyrogram import Client, idle
-from config import API_ID, API_HASH, BOT_TOKEN
-from VideoStream.videoplayer import app
-
-
+from config import Cyber 
+from bot.videoplayer import app
+from bot.videoplayer import call_py
+from helpers.loggings import LOG
+ 
+    
 bot = Client(
     ":memory:",
-    API_ID,
-    API_HASH,
-    bot_token=BOT_TOKEN,
-    plugins=dict(root="VideoStream"),
+    Cyber.API_ID,
+    Cyber.API_HASH,
+    bot_token=Cyber.BOT_TOKEN,
+    plugins=dict(root="bot"),
 )
 
-bot.start()
-print("[INFO]: STARTING BOT CLIENT")
-app.start()
-print("[INFO]: STARTING USERBOT CLIENT")
-idle()
-print("[INFO]: STOPPING BOT")
+StartTime = time.time()
+
+loop = asyncio.get_event_loop()
+
+_path = f"bot/*.py"
+files = glob.glob(_path)
+
+def load_plugins(plugin_name):
+    path = Path(f"bot/{plugin_name}.py")
+    name = "bot.{}".format(plugin_name)
+    spec = importlib.util.spec_from_file_location(name, path)
+    load = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(load)
+    sys.modules[f"bot." + plugin_name] = load
+    print("Imported => " + plugin_name)
+
+async def start():
+    print('\n')
+    print('------------------ Initalizing Cyber --------------------')
+    if bot:
+        await bot.start()
+    await app.start()
+    await call_py.start()
+    print('------------------------ DONE --------------------------')
+    print('------------------ Importing Modules -------------------')
+    for name in files:
+        with open(name) as a:
+            path_ = Path(a.name)
+            plugin_name = path_.stem
+            load_plugins(plugin_name.replace(".py", ""))
+    print('------------------- INITIATED CYBER ---------------------')
+    print('     Logged in as User =>> {}'.format((await app.get_me()).first_name))
+    if bot:
+        print('     Logged in to Bots =>> {}'.format((await bot.get_me()).first_name))
+    print('--------------------------------------------------------')
+    await idle()
+if __name__ == '__main__':
+    is_bot = bool(Cyber.BOT_TOKEN)
+    loop.run_until_complete(start())
