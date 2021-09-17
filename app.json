@@ -7,40 +7,52 @@
         "telegram bot",
         "video stream"
     ],
-    "channel": "https://t.me/CyberMusicProject",
+    "website": "https://t.me/CyberMusicProject",
     "repository": "https://github.com/aryazakaria01/VideoStreamVCG",
     "success_url": "https://t.me/Badboyanim",
     "env": {
         "API_ID": {
-            "description": "Your APP_ID from my.telegram.org",
+            "description": "your APP_ID from my.telegram.org",
             "required": true
         },
         "API_HASH": {
-            "description": "Your API_HASH from my.telegram.org",
+            "description": "your API_HASH from my.telegram.org",
             "required": true
         },
         "BOT_TOKEN": {
-            "description": "Your bot token from @BotFather",
+            "description": "your bot token from @botfather",
             "required": true
         },
         "BOT_USERNAME": {
-            "description": "Your bot username from @BotFather",
+            "description": "your bot username from @botfather",
             "required": true
         },
         "ASSISTANT_NAME": {
-            "description": "Fill with the assistant username account without @",
+            "description": "fill with the assistant username account without @",
             "required": true
         },
         "SESSION_NAME": {
-            "description": "Fill with the pyrogram String Session",
+            "description": "fill with the pyrogram String Session",
             "required": true
         },
         "SUDO_USERS": {
-            "description": "List of user ids to be added to sudo member list",
+            "description": "list of user ids to be added to sudo member list",
             "required": true
         },
         "DURATION_LIMIT": {
-            "description": "Maximum duration limit for downloadable videos (In Minutes)",
+            "description": "maximum duration limit for downloadable videos (in minutes)",
+            "required": true
+        },
+        "GROUP_NAME": {
+            "description": "fill with your group username without @",
+            "required": true
+        },
+        "CHANNEL_NAME": {
+            "description": "fill with your channel username without @",
+            "required": true
+        },
+        "OWNER_NAME": {
+            "description": "fill with your telegram account username without @",
             "required": true
         }
     },
@@ -48,6 +60,9 @@
     "buildpacks": [
         {
             "url": "heroku/python"
+        },
+        {
+            "url": "heroku/nodejs"
         },
         {
             "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
@@ -59,5 +74,5 @@
             "size": "free"
         }
     },
-    "stack": "heroku-20"
+    "stack": "container"
 }
