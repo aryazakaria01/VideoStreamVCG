@@ -20,23 +20,23 @@ bot = Client(
     Cyber.API_ID,
     Cyber.API_HASH,
     bot_token=Cyber.BOT_TOKEN,
-    plugins=dict(root="bot"),
+    plugins=dict(root="VideoStream"),
 )
 
 StartTime = time.time()
 
 loop = asyncio.get_event_loop()
 
-_path = f"bot/*.py"
+_path = f"VideoStream/*.py"
 files = glob.glob(_path)
 
 def load_plugins(plugin_name):
-    path = Path(f"bot/{plugin_name}.py")
-    name = "bot.{}".format(plugin_name)
+    path = Path(f"VideoStream/{plugin_name}.py")
+    name = "VideoStream.{}".format(plugin_name)
     spec = importlib.util.spec_from_file_location(name, path)
     load = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(load)
-    sys.modules[f"bot." + plugin_name] = load
+    sys.modules[f"VideoStream." + plugin_name] = load
     print("Imported => " + plugin_name)
 
 async def start():
@@ -59,6 +59,7 @@ async def start():
         print('     Logged in to Bots =>> {}'.format((await bot.get_me()).first_name))
     print('--------------------------------------------------------')
     await idle()
+
 if __name__ == '__main__':
     is_bot = bool(Cyber.BOT_TOKEN)
     loop.run_until_complete(start())
