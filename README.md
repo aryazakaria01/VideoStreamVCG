@@ -37,9 +37,6 @@ The easy way to host this bot, deploy to Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/aryazakaria01/VideoStreamVCG)
 
-# Railway Deployment 🚄
-[![Deploy+on+Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/aryazakaria01/VideoStreamVCG&envs=API_ID,API_HASH,BOT_TOKEN,BOT_USERNAME,ASSISTANT_NAME,SESSION_NAME,SUDO_USERS,DURATION_LIMIT)
-
 ## VPS Deployment
 ```sh
 - sudo apt update && upgrade -y
@@ -55,7 +52,6 @@ The easy way to host this bot, deploy to Heroku
 - nano local.env #Fill it with your variables value.
 - python3 -m bot
 ```
-
 
 # Special Credits 💖
 
