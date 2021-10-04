@@ -10,8 +10,8 @@ import importlib
 from pathlib import Path
 from pyrogram import Client, idle
 from config import Cyber 
-from bot.videoplayer import app
-from bot.videoplayer import call_py
+from VideoStream.videoplayer import app
+from VideoStream.videoplayer import call_py
 from helpers.loggings import LOG
  
     
