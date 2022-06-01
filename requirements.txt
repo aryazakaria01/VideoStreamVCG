@@ -8,7 +8,7 @@ youtube_dl==2021.06.06
 git+https://github.com/pyrogram/pyrogram@master
 youtube_search_python==1.4.6
 youtube_search
-httpx==0.13.3
+httpx==0.23.0
 python-dotenv
 aiofiles
 aiohttp
